@@ -41,13 +41,16 @@
     ::-webkit-scrollbar {
       width: 10px;
     }
+
     ::-webkit-scrollbar-track {
       background: #0b0717;
     }
+
     ::-webkit-scrollbar-thumb {
       background: #a855f7;
       border-radius: 5px;
     }
+
     ::-webkit-scrollbar-thumb:hover {
       background: #22d3ee;
     }
@@ -129,7 +132,7 @@
 <body class="antialiased">
 
   <!-- Navbar -->
-  <header class="fixed top-0 inset-x-0 z-40 bg-bg/95 backdrop-blur-lg border-b border-white/10 shadow-md">
+  <header class="fixed top-0 inset-x-0 z-40 bg-bg/40 backdrop-blur-xl border-b border-white/10 shadow-md">
     <nav class="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between relative">
       <a href="#home" class="flex items-center gap-3 relative z-10">
         <img src="imgs/logo.avif" alt="شعار الموقع" fetchpriority="high" decoding="async"
@@ -142,11 +145,14 @@
             التوليدي</a></li>
         <li class="pointer-events-auto"><a href="#tools" class="hover:text-primary transition-colors">الأدوات</a></li>
         <li class="pointer-events-auto"><a href="#gallery" class="hover:text-primary transition-colors">المعرض</a></li>
-      <li class="pointer-events-auto"><a href="#videos" class="hover:text-primary transition-colors">الفيديوهات</a></li>
-      <li class="pointer-events-auto"><a href="#proscons" class="hover:text-primary transition-colors">المزايا والتحديات</a></li>
+        <li class="pointer-events-auto"><a href="#videos" class="hover:text-primary transition-colors">الفيديوهات</a>
+        </li>
+        <li class="pointer-events-auto"><a href="#proscons" class="hover:text-primary transition-colors">المزايا
+            والتحديات</a></li>
       </ul>
       <div class="relative z-10 flex items-center">
-        <button id="menuBtn" aria-label="القائمة" class="md:hidden text-2xl p-1 rounded hover:bg-white/10 transition">☰</button>
+        <button id="menuBtn" aria-label="القائمة"
+          class="md:hidden text-2xl p-1 rounded hover:bg-white/10 transition">☰</button>
       </div>
     </nav>
     <div id="mobileMenu" class="hidden md:hidden px-6 pb-4 space-y-2 text-sm">
@@ -162,13 +168,12 @@
   <section id="home" class="relative hero-bg overflow-hidden pt-32 pb-20">
     <div class="relative max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center">
       <div class="reveal">
-        <span class="inline-block px-3 py-1 rounded-full text-xs glass mb-4">مشروع جامعي · فرونت إند</span>
         <h1 class="text-4xl md:text-6xl font-extrabold leading-tight">
-        <span class="gradient-text">الذكاء الاصطناعي التوليدي</span><br/>
+          <span class="gradient-text">الذكاء الاصطناعي التوليدي</span><br />
           لإنتاج الوسائط المتعددة
         </h1>
         <p class="mt-6 text-lg text-white/80 max-w-xl">
-          استكشف كيف تُغيِّر نماذج الذكاء الاصطناعي طريقة إنشاء الصور والفيديوهات والصوت،
+          استكشف كيف تغير نماذج الذكاء الاصطناعي طريقة إنشاء الصور والفيديوهات والصوت،
           من خلال أمثلة بصرية حقيقية وأدوات معاصرة.
         </p>
         <div class="mt-8 flex flex-wrap gap-3">
@@ -179,11 +184,11 @@
       <div class="reveal grid grid-cols-2 gap-3">
         <img src="imgs/1.avif" alt="عمل فني توليدي 1" class="rounded-2xl aspect-[3/4] object-cover w-full"
           fetchpriority="high" decoding="async" />
-        <img src="imgs/2.avif" alt="عمل فني توليدي 2" class="rounded-2xl aspect-square object-cover w-full mt-8"
+        <img src="imgs/4.avif" alt="عمل فني توليدي 2" class="rounded-2xl aspect-square object-cover w-full mt-8"
           fetchpriority="high" decoding="async" />
         <img src="imgs/3.avif" alt="عمل فني توليدي 3" class="rounded-2xl aspect-square object-cover w-full"
           loading="lazy" decoding="async" />
-        <img src="imgs/4.avif" alt="عمل فني توليدي 4" class="rounded-2xl aspect-[3/4] object-cover w-full mt-8"
+        <img src="imgs/2.avif" alt="عمل فني توليدي 4" class="rounded-2xl aspect-[3/4] object-cover w-full mt-8"
           loading="lazy" decoding="async" />
       </div>
     </div>
@@ -278,8 +283,10 @@
 
   <!-- Lightbox -->
   <div id="lightbox" class="lightbox fixed inset-0 z-50 hidden items-center justify-center p-4">
-    <button id="lbClose" aria-label="إغلاق" class="absolute top-4 left-4 text-3xl hover:text-primary transition">✕</button>
-    <img id="lbImg" src="" alt="" loading="lazy" decoding="async" class="max-h-[90vh] max-w-[95vw] rounded-xl shadow-2xl" />
+    <button id="lbClose" aria-label="إغلاق"
+      class="absolute top-4 left-4 text-3xl hover:text-primary transition">✕</button>
+    <img id="lbImg" src="" alt="" loading="lazy" decoding="async"
+      class="max-h-[90vh] max-w-[95vw] rounded-xl shadow-2xl" />
   </div>
 
   <!-- Videos -->
@@ -302,19 +309,27 @@
       <div class="reveal p-8 rounded-2xl bg-card-grad border border-white/10">
         <h3 class="text-2xl font-extrabold mb-4 gradient-text">الايجابيات</h3>
         <ul class="space-y-3 text-white/80 pr-2">
-          <li class="flex items-start gap-2"><span class="text-green-400">✔</span> <span>سرعة هائلة في إنتاج المحتوى الإبداعي.</span></li>
-          <li class="flex items-start gap-2"><span class="text-green-400">✔</span> <span>تقليل التكاليف مقارنة بالإنتاج التقليدي.</span></li>
-          <li class="flex items-start gap-2"><span class="text-green-400">✔</span> <span>إتاحة الإبداع لغير المختصين.</span></li>
-          <li class="flex items-start gap-2"><span class="text-green-400">✔</span> <span>إمكانيات لا محدودة في التخصيص والتجريب.</span></li>
+          <li class="flex items-start gap-2"><span class="text-green-400">✔</span> <span>سرعة هائلة في إنتاج المحتوى
+              الإبداعي.</span></li>
+          <li class="flex items-start gap-2"><span class="text-green-400">✔</span> <span>تقليل التكاليف مقارنة بالإنتاج
+              التقليدي.</span></li>
+          <li class="flex items-start gap-2"><span class="text-green-400">✔</span> <span>إتاحة الإبداع لغير
+              المختصين.</span></li>
+          <li class="flex items-start gap-2"><span class="text-green-400">✔</span> <span>إمكانيات لا محدودة في التخصيص
+              والتجريب.</span></li>
         </ul>
       </div>
       <div class="reveal p-8 rounded-2xl bg-card-grad border border-white/10">
         <h3 class="text-2xl font-extrabold mb-4 gradient-text">السلبيات</h3>
         <ul class="space-y-3 text-white/80 pr-2">
-          <li class="flex items-start gap-2"><span class="text-red-400">✖</span> <span>مخاوف الملكية الفكرية وحقوق النشر.</span></li>
-          <li class="flex items-start gap-2"><span class="text-red-400">✖</span> <span>التزييف العميق وانتشار المعلومات المضللة.</span></li>
-          <li class="flex items-start gap-2"><span class="text-red-400">✖</span> <span>تحيُّزات في البيانات والمخرجات.</span></li>
-          <li class="flex items-start gap-2"><span class="text-red-400">✖</span> <span>أثر بيئي بسبب استهلاك الطاقة.</span></li>
+          <li class="flex items-start gap-2"><span class="text-red-400">✖</span> <span>مخاوف الملكية الفكرية وحقوق
+              النشر.</span></li>
+          <li class="flex items-start gap-2"><span class="text-red-400">✖</span> <span>التزييف العميق وانتشار المعلومات
+              المضللة.</span></li>
+          <li class="flex items-start gap-2"><span class="text-red-400">✖</span> <span>تحيُّزات في البيانات
+              والمخرجات.</span></li>
+          <li class="flex items-start gap-2"><span class="text-red-400">✖</span> <span>أثر بيئي بسبب استهلاك
+              الطاقة.</span></li>
         </ul>
       </div>
     </div>
@@ -322,11 +337,12 @@
 
   <!-- Footer -->
   <footer class="border-t border-white/10 py-8 text-center text-white/60 text-sm relative">
-    © 2026 GenAI Multimedia · مشروع تعليمي.
+    © 2026 GenMedia · مشروع تعليمي.
   </footer>
 
   <!-- Back to top -->
-  <button id="backToTop" aria-label="العودة للأعلى" class="fixed bottom-6 left-6 z-50 bg-primary/80 hover:bg-primary text-white w-12 h-12 rounded-full flex items-center justify-center shadow-glow transition duration-300 opacity-0 pointer-events-none translate-y-4 text-xl">
+  <button id="backToTop" aria-label="العودة للأعلى"
+    class="fixed bottom-6 left-6 z-50 bg-primary/80 hover:bg-primary text-white w-12 h-12 rounded-full flex items-center justify-center shadow-glow transition duration-300 opacity-0 pointer-events-none translate-y-4 text-xl">
     ↑
   </button>
 
@@ -388,7 +404,7 @@
       const card = document.createElement('div');
       card.className = 'reveal rounded-2xl overflow-hidden bg-card-grad border border-white/10 hover:-translate-y-2 hover:shadow-glow transition duration-300';
       card.innerHTML = `
-      <video src="${v.src}" controls preload="none" class="w-full aspect-video bg-black"></video>
+      <video src="${v.src}" controls preload="metadata" class="w-full aspect-video bg-black"></video>
       <div class="p-5">
         <h4 class="font-bold text-lg mb-1">${v.title}</h4>
         <p class="text-sm text-white/70"><span class="text-accent font-semibold">Prompt:</span> ${v.prompt}</p>
