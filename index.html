@@ -141,13 +141,13 @@
       </a>
       <ul
         class="hidden md:flex absolute inset-0 justify-center items-center gap-8 text-[15px] font-semibold pointer-events-none">
-        <li class="pointer-events-auto"><a href="#about" class="hover:text-primary transition-colors">عن الذكاء
+        <li class="pointer-events-auto"><a href="#about" class="nav-link hover:text-primary transition-colors">عن الذكاء
             التوليدي</a></li>
-        <li class="pointer-events-auto"><a href="#tools" class="hover:text-primary transition-colors">الأدوات</a></li>
-        <li class="pointer-events-auto"><a href="#gallery" class="hover:text-primary transition-colors">المعرض</a></li>
-        <li class="pointer-events-auto"><a href="#videos" class="hover:text-primary transition-colors">الفيديوهات</a>
+        <li class="pointer-events-auto"><a href="#tools" class="nav-link hover:text-primary transition-colors">الأدوات</a></li>
+        <li class="pointer-events-auto"><a href="#gallery" class="nav-link hover:text-primary transition-colors">المعرض</a></li>
+        <li class="pointer-events-auto"><a href="#videos" class="nav-link hover:text-primary transition-colors">الفيديوهات</a>
         </li>
-        <li class="pointer-events-auto"><a href="#proscons" class="hover:text-primary transition-colors">المزايا
+        <li class="pointer-events-auto"><a href="#proscons" class="nav-link hover:text-primary transition-colors">المزايا
             والتحديات</a></li>
       </ul>
       <div class="relative z-10 flex items-center">
@@ -156,11 +156,11 @@
       </div>
     </nav>
     <div id="mobileMenu" class="hidden md:hidden px-6 pb-4 space-y-2 text-sm">
-      <a href="#about" class="block py-1">عن الذكاء التوليدي</a>
-      <a href="#tools" class="block py-1">الأدوات</a>
-      <a href="#gallery" class="block py-1">المعرض</a>
-      <a href="#videos" class="block py-1">الفيديوهات</a>
-      <a href="#proscons" class="block py-1">المزايا والتحديات</a>
+      <a href="#about" class="nav-link block py-1 hover:text-primary transition-colors">عن الذكاء التوليدي</a>
+      <a href="#tools" class="nav-link block py-1 hover:text-primary transition-colors">الأدوات</a>
+      <a href="#gallery" class="nav-link block py-1 hover:text-primary transition-colors">المعرض</a>
+      <a href="#videos" class="nav-link block py-1 hover:text-primary transition-colors">الفيديوهات</a>
+      <a href="#proscons" class="nav-link block py-1 hover:text-primary transition-colors">المزايا والتحديات</a>
     </div>
   </header>
 
@@ -320,7 +320,7 @@
         </ul>
       </div>
       <div class="reveal p-8 rounded-2xl bg-card-grad border border-white/10">
-        <h3 class="text-2xl font-extrabold mb-4 gradient-text">السلبيات</h3>
+        <h3 class="text-2xl font-extrabold mb-4 gradient-text text-red">السلبيات</h3>
         <ul class="space-y-3 text-white/80 pr-2">
           <li class="flex items-start gap-2"><span class="text-red-400">✖</span> <span>مخاوف الملكية الفكرية وحقوق
               النشر.</span></li>
@@ -357,6 +357,23 @@
       link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
     });
 
+    // Active Navbar Link
+    const navLinks = document.querySelectorAll('.nav-link');
+    const sections = document.querySelectorAll('section');
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          navLinks.forEach(link => {
+            link.classList.remove('text-primary', 'font-bold');
+            if (link.getAttribute('href') === `#${entry.target.id}`) {
+              link.classList.add('text-primary', 'font-bold');
+            }
+          });
+        }
+      });
+    }, { rootMargin: '-50% 0px -50% 0px' });
+    sections.forEach(sec => sectionObserver.observe(sec));
+
     // Reveal on scroll
     const io = new IntersectionObserver((entries) => {
       entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('show'); });
@@ -392,12 +409,12 @@
 
     // Videos
     const videos = [
-      { src: 'videos/man.mp4', title: 'رجل يسير في المدينة', prompt: 'رجل يمشي في شارع مزدحم بإضاءة سينمائية ليلاً.' },
-      { src: 'videos/cat-and-dog.mp4', title: 'قطة وكلب', prompt: 'قطة وكلب يلعبان في حديقة مشمسة بأسلوب واقعي.' },
-      { src: 'videos/Cinematic.mp4', title: 'لقطة سينمائية', prompt: 'لقطة سينمائية واسعة لمنظر طبيعي عند الغروب.' },
-      { src: 'videos/Human_eye.mp4', title: 'عين بشرية', prompt: 'لقطة مقربة جداً لعين بشرية بتفاصيل دقيقة.' },
-      { src: 'videos/create.mp4', title: 'عملية إبداع', prompt: 'فديو مولد ببرنامج Capcat' },
-      { src: 'videos/create2.mp4', title: ' عملية إبداع 2', prompt: 'فديو مولد ببرنامج Canva' }
+      { src: 'videos/man.mp4', title: 'رجل يهبط على الشمس', prompt: 'Create a video of a man landing on the sun while it is snowing. (make it like anime nor real life with stable sound)' },
+      { src: 'videos/cat-and-dog.mp4', title: 'القط والكلب يسجلان هدفاً', prompt: 'Create a video of cat and dog playing on the same team and scoring a joint goal. (make it like anime nor real life with stable sound)' },
+      { src: 'videos/Cinematic.mp4', title: 'مشهد سينمائي', prompt: 'Create cinematic scenes with dramatic lighting' },
+      { src: 'videos/Human_eye.mp4', title: 'عين بشرية', prompt: 'A very close-up shot of the human eye with fine details.' },
+      { src: 'videos/create.mp4', title: 'فديو ابداعي', prompt: 'Video generated using Capcut software' },
+      { src: 'videos/create2.mp4', title: 'فديو ابداعي', prompt: 'Video generator using Canva software' }
     ];
     const grid = document.getElementById('videoGrid');
     videos.forEach(v => {
